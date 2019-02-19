@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       selectedBeerIndex: '',
       selectedBeer: null,
-      favouriteBeers: []
+      favouriteBeers: [],
+      ingredients: {
+
+      }
+
     },
     mounted(){
       this.getBeer();
@@ -20,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => this.beers = data)
       },
       beerSelect: function (index) {
-        this.selectedBeer =this.beers[this.selectedBeerIndex]
+        this.selectedBeer = this.beers[this.selectedBeerIndex]
       },
       addFavBeer: function() {
-        if (this.selectedBeer) {
+        if (!this.favouriteBeers.includes(this.selectedBeer)) {
           this.favouriteBeers.push(this.selectedBeer)
         }
       },
